@@ -1,5 +1,5 @@
-#ifndef STORE_H
-#define STORE_H
+#ifndef OBSERVER_H
+#define OBSERVER_H
 #include<functional>
 #include<vector>
 #include<algorithm>
@@ -8,10 +8,10 @@ using namespace std;
 
 template<typename S>
 /**
- * @brief The Store class (Observer)
+ * @brief The Observer class (Observer)
  * @infor: by saber2pr
  */
-class Store
+class Observer
 {
     typedef function<void(S)> Listener;
     typedef function<void()> unsubscribe;
@@ -22,14 +22,14 @@ private:
 
 public:
     /**
-     * @brief Store
+     * @brief Observer
      * @param state
      */
-    Store(S state){
+    Observer(S state){
         this->_state = state;
     }
 
-    ~Store(){
+    ~Observer(){
         this->_Listeners.clear();
     }
     /**
@@ -63,4 +63,4 @@ public:
     }
 };
 
-#endif // STORE_H
+#endif // OBSERVER_H

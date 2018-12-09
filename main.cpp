@@ -1,6 +1,6 @@
 #include <iostream>
 #include"./src/console/console.hpp"
-#include"./src/store/store.hpp"
+#include"./src/store/Observer.hpp"
 
 using namespace std;
 
@@ -19,17 +19,17 @@ void listener3(string state){
 int main()
 {
 
-    Store<string> store = Store<string>("haha");
+    Observer<string> observer = Observer<string>("haha");
 
-    auto unListener1 = store.subscribe(listener1);
-    auto unListener2 = store.subscribe(listener2);
-    auto unListener3 = store.subscribe(listener3);
+    auto unListener1 = observer.subscribe(listener1);
+    auto unListener2 = observer.subscribe(listener2);
+    auto unListener3 = observer.subscribe(listener3);
 
-    //    unListener1();
+//    unListener1();
     unListener2();
-    //    unListener3();
+//    unListener3();
 
-    store.dispatch("lalala");
+    observer.dispatch("lalala");
 
     return 0;
 }
