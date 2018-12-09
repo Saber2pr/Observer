@@ -2,11 +2,10 @@
 
 ```cpp
 unsubscribe subscribe(Listener listener){
-    this->Listeners.push_back(listener);
-    int index = this->Listeners.size() - 1;
+    this->_Listeners.push_back(listener);
+    int index = this->_Listeners.size() - 1;
     return [=](){
-        this->Listeners.erase(this->Listeners.begin() + index);
-        cout << index << endl;
+        this->_Listeners[index] = [](S){};
     };
 }
 ```
